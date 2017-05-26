@@ -1,0 +1,50 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta charset="utf-8" />
+<title>隐藏选定DIV</title>
+<link rel="stylesheet" href="exercise01_02.css" />
+  <style>
+    #container div{
+      background-color: #80ff80;
+      margin: 10px;
+      float:left;
+      width:200px;
+      height:200px;
+    }
+    .chosen{
+      border: 2px solid red;
+    }
+    .color{
+      background:black;
+    }
+  </style>
+</head>
+<body>
+	<h2>隐藏选定DIV</h2>
+	<button onclick="hide()">隐藏选定</button>
+	<div id="container">
+		<div onclick="chose(this) " ><img src="img/1.png" width="100%"/></div>
+		<div onclick="chose(this ) "><img src="img/2.png"width="100%"/></div>
+		<div onclick="chose(this)"><img src="img/3.png"width="100%"/></div>
+		<div onclick="chose(this)"><img src="img/4.png"width="100%"/></div>
+	</div>
+  <script>
+    //显示和隐藏div
+    function chose(div){
+      if(div.className=='chosen'){
+        div.className='';
+      }else{
+        div.className='chosen'
+      }
+    }
+    function hide(){
+      var obj=document.getElementById('container')
+      var divs=obj.getElementsByClassName('chosen');
+      for(var i=0;i<divs.length;i++){
+        divs[i].style.display='none';
+      }
+    }
+  </script>
+</body>
+</html>
